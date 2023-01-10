@@ -23,7 +23,7 @@ use App\Models\Reservasi;
 use DB;
 use Session;
 use Carbon\Carbon;
-session_id("rs-dinda");
+session_id("tubes-wad");
 session_start();
 
 class PasienController extends Controller

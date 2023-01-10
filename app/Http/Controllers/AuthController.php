@@ -13,7 +13,7 @@ use Illuminate\Validation\Rule;
 use App\Models\User;
 use Session;
 
-session_id("rs-dinda");
+session_id("tubes-wad");
 session_start();
 
 class AuthController extends Controller
@@ -42,6 +42,7 @@ class AuthController extends Controller
             $register = User::create([
                 'nama' => $param['nama'],
                 'email' => $param['email'],
+                'role' => 'pasien',
                 'password' => Hash::make($param['password']),
                 'created_at' => date('Y-m-d H:i:s')         
             ]);
@@ -104,7 +105,7 @@ class AuthController extends Controller
                         return Redirect::to('pendaftaran-pasien');
                     } else if(Session::get('role') == 'admin')
                     {
-                        return Redirect::to('cek-reservasi-pasien');
+                        return Redirect::to('home-admin');
                     }
                 }
             }
